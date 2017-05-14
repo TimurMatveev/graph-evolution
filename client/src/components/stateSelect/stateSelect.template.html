@@ -1,0 +1,9 @@
+<div class="select-wrapper unselectable">
+    <div class="left-arrow" (click)="swipeLeft($event)">&#9668;</div>
+    <div class="slider-wrapper">
+        <div class="slider" [ngStyle]="getSliderStyles()">
+            <div class="slider-item" *ngFor="let state of alphabet" [title]="state" [class.active]="state == selectedValue" [style.width.px]="1.2 * dispersion" >{{state}}</div>
+        </div>
+    </div>
+    <div class="right-arrow" (click)="swipeRight($event)">&#9658;</div>
+</div>

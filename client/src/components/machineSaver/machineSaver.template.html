@@ -1,0 +1,30 @@
+<div class="save-box">
+    <h2 class="save-heading extra-light-font">{{'DefineMachineHere' | localize}}</h2>
+    <div class="save-container">
+        <div class="save-field define-field">
+            <h3 class="field-heading">{{'NameAndDescription' | localize}}</h3>
+            <section>
+                <div class="form-wrapper">
+                    <div>
+                        <input class="name-input" type="text" [(ngModel)]="machineConfig.name" placeholder="{{'NewMachineName' | localize}}">
+                        <textarea class="description-input" [(ngModel)]="machineConfig.description" placeholder="{{'NewMachineDescription' | localize}}"></textarea>                    
+                    </div>
+                    <nav>
+                        <div class="app-button save-button" (click)="saveMachine()">
+                            {{'Save' | localize}}
+                        </div>
+                        <div class="app-button save-button" (click)="updateMachine()" *ngIf="isUpdate">
+                            {{'Update' | localize}}
+                        </div>
+                    </nav>
+                </div>
+            </section>
+        </div>
+        <div class="save-field preview-field">
+            <h3 class="field-heading preview-field-heading">{{'Preview' | localize }}</h3>
+            <section>
+                <code>{{ machineConfig | json }}</code>
+            </section>
+        </div>
+    </div>
+</div>

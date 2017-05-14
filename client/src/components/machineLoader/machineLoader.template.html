@@ -1,0 +1,22 @@
+<div class="load-box">
+    <h2 class="load-heading extra-light-font">{{'SelectMachineHere' | localize}}</h2>
+    <div class="load-container">
+        <div class="loading-indicator" *ngIf="isLoading">
+            <div class="loading-spinner loading-spinner1"></div>
+            <div class="loading-spinner loading-spinner2"></div>
+            <div class="loading-spinner loading-spinner3"></div>
+        </div>
+        <div class="load-field define-field">
+            <h3 class="field-heading">{{'AvaliableMachines' | localize}}</h3>
+            <section>
+                <div class="machines-wrapper">
+                    <div class="machine-wrapper app-button" *ngFor="let machine of machines" (click)="selectMachine($event, machine)">
+                        <div class="machine-name" title="{{machine.name}}">{{machine.name}}</div>
+                        <div class="machine-description" title="{{machine.description}}">{{machine.description}}</div>
+                        <div class="app-button remove-button" (click)="removeMachine($event, machine)">{{'Remove' | localize}}</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

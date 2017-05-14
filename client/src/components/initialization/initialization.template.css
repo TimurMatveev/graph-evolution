@@ -1,0 +1,221 @@
+.init-box {
+    background: rgba(255, 255, 255, 0.85);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.init-heading {
+    padding: 12px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+.init-container {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.field-heading {
+    padding: 12px;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+.init-container > div {
+    height: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    transition: background-color 200ms ease-out;
+    overflow: auto;
+}
+
+.init-container > div:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.graph-init {
+    flex: 1 1 25%;
+    min-width: 370px;
+}
+
+.graph-list > li {
+    display: flex;
+    justify-content: flex-end;
+    margin: 12px;
+    padding: 4px 4px 4px 12px;
+    height: 36px;
+    align-items: center;
+}
+
+.graph-name {
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.graph-param {
+    margin-left: 4px;
+}
+
+.graph-param > input {
+    padding: 4px 6px;
+    width: 60px;
+    border-radius: 2px;
+    border: solid 1px rgba(0, 0, 0, 0.5);
+}
+
+.machine-init {
+    flex: 1 1 75%;
+    min-width: 560px;
+}
+
+.init-selector > .app-button {
+    margin-right: 12px;
+}
+
+.init-field > section {
+    padding: 12px;
+    display: flex;
+    overflow: auto;
+    max-height: 460px;
+}
+
+.init-field > section > h4 {
+    padding: 5px 12px 5px 0;
+}
+
+.init-field > .init-instructions > h4 {
+    padding-top: 14px;
+}
+
+.init-field > section > ul {
+    display: flex;
+    align-items: flex-start;
+}
+
+.init-field > section > ul > li {
+    margin-right: 6px;
+    position: relative;
+}
+
+.alphabet-list > li:not(.add-button) {
+    border: solid 1px rgba(0, 0, 0, 0.8);
+}
+
+.alphabet-list .app-button {
+    text-transform: none;
+}
+
+.add-button {
+    padding: 1px;
+    display: flex;
+    border: dashed 1px rgba(0, 0, 0, 0.8);
+}
+
+.add-button:hover, .add-button:active {
+    background: none;
+}
+
+.add-button > input {
+    padding: 5px 6px;
+    border: none;
+    font-size: 14px;
+    background: none;
+    width: 64px;
+}
+
+.submit-button {
+    font-size: 24px;
+    line-height: 14px;
+}
+
+.remove-state {
+    opacity: 0;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: solid 1px rgba(0, 0, 0, 0.8);
+    border-radius: 3px;
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    transition: background 200ms ease-out;
+    transition: opacity 200ms ease-out;
+}
+
+li.app-button:hover > .remove-state {
+    opacity: 1;
+}
+
+.remove-state:hover {
+    background: #bbb;
+}
+
+.remove-state:after {
+    content: "+";
+    font-size: 21px;
+    display: block;
+    position: absolute;
+    top: -8px;
+    left: 1px;
+    transform: rotate(45deg);
+}
+
+.instructions-table {
+    border-collapse: collapse;
+    width: 100%;
+    padding: 4px 0 4px 12px;
+}
+
+.instructions-table > tbody > tr {
+    transition: background 200ms ease-out;
+}
+
+.instructions-table > tbody > tr:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.instructions-table td {
+    padding: 8px 2px;
+    border: none;
+    vertical-align: top;
+    position: relative;
+}
+
+.instructions-table td.to-state-td {
+    padding-top: 12px;
+}
+
+.from-state {
+    margin-left: 2px;
+}
+
+.remove-instruction {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    padding: 4px!important;
+    font-size: 12px;
+}
+
+.add-row > td {
+    padding: 0;
+}
+
+.instructions-table td > div {
+    padding: 8px;
+}
+
+.instructions-table td::nth-child(even) {
+    width: 14%;
+}
+
+.instructions-table td::nth-child(odd) {
+    width: 36%;
+}

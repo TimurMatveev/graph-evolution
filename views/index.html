@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Graph Evolution</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/loading.css">
+
+		<script src="node_modules/vivagraphjs/dist/vivagraph.js"></script>
+
+		<!-- Polyfill(s) for older browsers -->
+		<script src="node_modules/core-js/client/shim.min.js"></script>
+
+		<script src="node_modules/zone.js/dist/zone.js"></script>
+		<script src="node_modules/reflect-metadata/Reflect.js"></script>
+		<script src="node_modules/systemjs/dist/system.src.js"></script>
+
+		<script src="systemjs.config.js"></script>
+		<script>
+		System.import('src').catch(function(err){ console.error(err); });
+		</script>
+
+        <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+	</head>
+
+	<body>
+		<graph-evolution>
+			<div class="loading-indicator">
+				<div class="loading-spinner loading-spinner1"></div>
+				<div class="loading-spinner loading-spinner2"></div>
+				<div class="loading-spinner loading-spinner3"></div>
+			</div>
+		</graph-evolution>
+	</body>
+</html>

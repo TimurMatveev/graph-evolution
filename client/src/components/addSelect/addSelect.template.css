@@ -1,0 +1,45 @@
+.add-select-wrapper {
+    max-height: 136px;
+    overflow: auto;
+}
+
+.selected-item, .add-item {
+    padding: 5px 5px 5px 8px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    text-transform: none;
+    box-sizing: border-box;
+}
+
+.selected-item {
+    padding: 2px 5px 3px 8px;
+    border: solid 1px rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+}
+
+.selected-item:last-child {
+    margin-bottom: 3px;
+}
+
+.selected-item:not(:first-child), .add-item:not(:first-child) {
+    margin-top: 3px;
+}
+
+.selected-item > .name, .add-item > .name {
+    width: 100%;
+    font-size: 18px;
+}
+
+input.param {
+    padding: 4px 6px;
+    margin-left: 4px;
+    background: #fff;
+    width: 60px;
+    border-radius: 2px;
+    border: solid 1px rgba(0, 0, 0, 0.8);
+}
+
+.add-items *:not(input) {
+    color: #777;
+}

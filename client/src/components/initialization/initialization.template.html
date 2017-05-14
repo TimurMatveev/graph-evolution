@@ -1,0 +1,78 @@
+<div class="init-box">
+    <h2 class="init-heading extra-light-font">{{'InitializeGraphOrMachineHere' | localize}}</h2>
+    <div class="init-container">
+        <div class="graph-init">
+            <h3 class="field-heading extra-light">{{'InitialGraph' | localize}}</h3>
+            <div class="init-field">
+                <ul class="graph-list">
+                    <li *ngFor="let item of avaliableGraphs" class="app-button" [title]="item.description | localize" [class.selected]="item.selected" (click)="changeSelectedGraph($event, item)">
+                        <div class="graph-name">{{item.name | localize}}</div>
+                        <div class="graph-param" *ngFor="let param of item.params">
+                            <input type="number" [(ngModel)]="param.value">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="machine-init">
+            <h3 class="field-heading extra-light">{{'MachineInstructions' | localize}}</h3>
+            <div class="init-field">
+                <section class="init-alphabet">
+                    <h4>{{'Alphabet' | localize}}</h4>
+                    <ul class="alphabet-list">
+                        <li *ngFor="let state of alphabet" class="app-button" (click)="setCurrentState(state)">
+                            <span>{{state}}</span>
+                            <div class="remove-state" *ngIf="state.toLowerCase() != 'start' && state.toLowerCase() != 'stop'" (click)="removeState(state)"></div>
+                        </li>
+                        <li class="add-button app-button">
+                            <input type="text" placeholder="{{'Add' | localize}}" (keydown)="addNewState($event, newValueInput)" #newValueInput>
+                            <div class="app-button submit-button" *ngIf="newValueInput.value" (click)="addNewState($event, newValueInput)">+</div>
+                        </li>
+                    </ul>
+                </section>
+                <section class="init-instructions">
+                    <table border="0" class="instructions-table">
+                        <thead>
+                            <tr>
+                                <td [style.width.%]="12">
+                                    <div>{{'FromState' | localize}}</div>
+                                </td>
+                                <td [style.width.%]="38">
+                                    <div>{{'Conditions' | localize}}</div>
+                                </td>
+                                <td [style.width.%]="12">
+                                    <div>{{'ToState' | localize}}</div>
+                                </td>
+                                <td [style.width.%]="38">
+                                    <div>{{'Actions' | localize}}</div>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let instruction of currentInstruction.variants">
+                                <td>
+                                    <div class="from-state">{{currentState}}</div>
+                                    <div class="app-button remove-instruction" (click)="removeInstruction(instruction)">{{'Remove' | localize}}</div>
+                                </td>
+                                <td>
+                                    <add-select type="condition" [data]="instruction" [state]="currentState" (dataUpdated)="updateInstructions()"></add-select>
+                                </td>
+                                <td class="to-state-td">
+                                    <state-select [state]="currentState" [instruction]="instruction" (selectValue)="changeState(instruction, $event)"></state-select>
+                                </td>
+                                <td>
+                                    <add-select type="action" [data]="instruction" [state]="currentState" (dataUpdated)="updateInstructions()"></add-select>
+                                </td>
+                            </tr>
+                            <tr class="add-row" *ngIf="!currentInstruction.terminate">
+                                <td colspan="4">
+                                    <div class="app-button" (click)="addNewInstruction()">{{'Add' | localize}}</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="add-select-wrapper">
+    <div *ngIf="addedData.length > 0" class="selected-items">
+        <div class="selected-item app-button" *ngFor="let item of addedData" (click)="removeItem($event, item)">
+            <div class="name">{{item.name | localize}}</div>
+            <div *ngFor="let parametr of item.params" [title]="item.description | localize">
+                <input *ngIf="parametr.type == 'number'" class="param" type="number" [(ngModel)]="parametr.value">
+                <state-select *ngIf="parametr.type == 'state'" [state]="parametr.value" (selectValue)="changeValue(parametr, $event)"></state-select>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="drilldownData.length > 0" class="add-items">
+        <div class="add-item app-button" *ngFor="let item of drilldownData" (click)="addItem($event, item)" [title]="item.description | localize">
+            <div class="name">{{item.name | localize}}</div>
+            <div *ngFor="let parametr of item.params">
+                <input *ngIf="parametr.type == 'number'" class="param" type="number" [(ngModel)]="parametr.value">
+                <state-select *ngIf="parametr.type == 'state'" [state]="parametr.value" (selectValue)="changeValue(parametr, $event)"></state-select>
+            </div>
+        </div>
+    </div>
+</div>

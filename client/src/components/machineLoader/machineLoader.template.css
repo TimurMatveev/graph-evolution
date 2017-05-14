@@ -1,0 +1,77 @@
+.load-box {
+    background: rgba(255, 255, 255, 0.85);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.load-heading {
+    padding: 12px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+.load-container {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.field-heading {
+    padding: 12px;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+.load-field {
+    height: 100%;
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    transition: background-color 200ms ease-out;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.load-field:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.load-field > section {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    flex: 1 1 100%;
+}
+
+.machine-wrapper {
+    display: flex;
+    padding: 12px;
+    max-height: 82px;
+}
+
+.machine-name,
+.machine-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    text-transform: initial;
+}
+
+.machine-name {
+    flex: 1 0 25%;
+}
+
+.machine-description {
+    flex: 1 1 75%;
+    padding-left: 24px;
+}
+
+.remove-button {
+    margin: -5px -5px -5px 24px;
+}

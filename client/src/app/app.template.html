@@ -1,0 +1,53 @@
+<div class="app-wrapper">
+    <div class="viewport-wrapper" (click)="toggleInitialization(false)">
+        <viewport></viewport>
+    </div>
+
+    <header class="app-header">
+        <nav class="app-nav app-nav-left">
+            <div class="app-button" (click)="toggleInitialization()">
+                {{'Initialize' | localize}}
+            </div>
+            <div class="app-button" (click)="toggleLoadingMachine()">
+                {{'LoadMachine' | localize}}
+            </div>
+        </nav>
+        <div class="app-header-centired" (click)="toggleInitialization(false)">
+            <h1 class="app-heading unselectable extra-light-font">{{'GraphEvolution' | localize}}</h1>
+            <nav class="app-animation-control">
+                <div class="app-button" (click)="machineSlower()">
+                    {{'Slower' | localize}}
+                </div>
+                <div class="app-button" (click)="machineToggle()">
+                    {{(MachineService.isRunning ? 'Pause' : 'Start') | localize}}
+                </div>
+                <div class="app-button" (click)="machineFaster()">
+                    {{'Faster' | localize}}
+                </div>
+            </nav>
+        </div>
+        <nav class="app-nav app-nav-right">
+            <div *ngIf="language == 'russian'" class="app-button" (click)="setLanguage('english')">
+                En
+            </div>
+            <div *ngIf="language == 'english'" class="app-button" (click)="setLanguage('russian')">
+                Ru
+            </div>
+            <div class="app-button" (click)="toggleSavingMachine()">
+                {{'SaveMachine' | localize}}
+            </div>
+        </nav>
+    </header> 
+
+    <div *ngIf="isInitializationFieldOpened" class="init-wrapper">
+        <initialization style="height: 100%"></initialization>
+    </div>   
+
+    <div *ngIf="isLoadingMachineFieldOpened" class="init-wrapper">
+        <machine-loader style="height: 100%"></machine-loader>
+    </div>
+
+    <div *ngIf="isSavingMachineFieldOpened" class="init-wrapper">
+        <machine-saver style="height: 100%"></machine-saver>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+.app-wrapper {
+    width: 100vw;
+    min-width: 900px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+    .app-header {
+        display: flex;
+        justify-content: space-between;
+        min-height: 50px;
+        background: rgba(255, 255, 255, 0.85);
+        padding: 3px 3px;
+
+        transform: translateY(-100%);
+        animation-name: header_slide;
+        animation-duration: 500ms;
+        animation-delay: 500ms;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+    }
+        .app-header-centired {
+            max-width: 720px;
+            flex-shrink: 0;
+        }
+
+            .app-heading {
+                color: #333;
+                text-transform: uppercase;
+                font-weight: 100;
+                text-align: center;
+                margin: auto;
+            }
+
+            .app-animation-control {
+                display: flex;
+                justify-content: space-between;
+                
+                opacity: 0;
+                animation-name: fade_in;
+                animation-duration: 500ms;
+                animation-delay: 2000ms;
+                animation-timing-function: ease-out;
+                animation-fill-mode: forwards;
+            }
+
+                .app-animation-control > div {
+                    width: 32%;
+                    font-weight: 300;
+                }
+
+        .app-nav {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 3px;
+            flex: 0 1 33%;
+            opacity: 0;
+            animation-name: fade_in;
+            animation-duration: 500ms;
+            animation-delay: 2000ms;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+        }
+
+        .app-nav-left {
+            align-items: flex-start;
+        }
+
+        .app-nav-right {
+            align-items: flex-end;
+        }
+    
+    .init-wrapper, .viewport-wrapper {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        bottom: 0;
+        left: 0;
+    }
+
+    .init-wrapper {
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+    }
+
+@keyframes header_slide {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade_in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

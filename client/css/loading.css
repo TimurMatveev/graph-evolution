@@ -1,0 +1,40 @@
+.loading-indicator {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 100%;
+    border: solid 1px transparent;
+    border-top: solid 1px #333;
+}
+
+.loading-spinner1 {
+    width: 80px;
+    height: 80px;
+    margin: -40px;
+    animation: spin 1200ms linear infinite;
+}
+
+.loading-spinner2 {
+    width: 68px;
+    height: 68px;
+    margin: -34px;
+    animation: spin 1000ms linear infinite reverse;
+}
+
+.loading-spinner3 {
+    width: 56px;
+    height: 56px;
+    margin: -28px;
+    animation: spin 800ms linear infinite;
+}
+
+@keyframes spin {
+    from {transform: rotate(0)}
+    to {transform: rotate(360deg)}
+}
