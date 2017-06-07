@@ -4,7 +4,6 @@ import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/cache';
 
 import { API_URL } from '../../constants/Constants';
 
@@ -23,21 +22,12 @@ export class MachineLoaderService {
     ) {}
 
     private wrapError_(error: any): string {
-        /*let errMsg: string;
-        if (error instanceof Response) {
-            const body = error.json() || '';
-            const err = (body as any).error || JSON.stringify(body);
-            errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-        } else {
-            errMsg = error.message ? error.message : error.toString();
-        }*/
         return error.message;
     }
 
     getMachines(): Observable<any[]> {
         return this.Http
             .get(API_URL + "/machines")
-            .cache()
             .map((res: any) => {
                 this.cachedMachines = res.json();
                 return this.cachedMachines;

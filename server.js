@@ -18,14 +18,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/", index);
 app.use("/api/v1/", machines);
-
+/*
 var livereload = require("livereload").createServer({
     exts: ['js', 'ts', 'css', 'html', 'ejs']
 });
 livereload.watch(path.join(__dirname, "views"));
 livereload.watch(path.join(__dirname, "routes"));
 livereload.watch(path.join(__dirname, "client"));
-
+*/
 app.listen(3000, function () {
     console.log("server started on port 3000");
 })

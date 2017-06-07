@@ -14,28 +14,18 @@ var http_1 = require("@angular/http");
 var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
-require("rxjs/add/operator/cache");
 var Constants_1 = require("../../constants/Constants");
 var MachineLoaderService = (function () {
     function MachineLoaderService(Http) {
         this.Http = Http;
     }
     MachineLoaderService.prototype.wrapError_ = function (error) {
-        /*let errMsg: string;
-        if (error instanceof Response) {
-            const body = error.json() || '';
-            const err = (body as any).error || JSON.stringify(body);
-            errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-        } else {
-            errMsg = error.message ? error.message : error.toString();
-        }*/
         return error.message;
     };
     MachineLoaderService.prototype.getMachines = function () {
         var _this = this;
         return this.Http
             .get(Constants_1.API_URL + "/machines")
-            .cache()
             .map(function (res) {
             _this.cachedMachines = res.json();
             return _this.cachedMachines;
