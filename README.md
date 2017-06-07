@@ -1,13 +1,13 @@
-### graph-evolution
+# graph-evolution
 
 
 
 
 
-# The following dependences required:
+### The following dependences required:
 1) Node.js https://nodejs.org/en/
 
-# Instalation guide:
+### Instalation guide:
 
 1) Clone the application to the local repo.
 
@@ -31,10 +31,10 @@ The application runs localy on host :3000. It could be run in browser using url 
 
 
 
-# Необходимые программы:
+### Необходимые программы:
 1) Node.js https://nodejs.org/en/
 
-# Порядок установки и запуска:
+### Порядок установки и запуска:
 
 1) Скопировать локально репозиторий
 
