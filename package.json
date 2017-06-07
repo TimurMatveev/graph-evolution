@@ -4,7 +4,7 @@
   "description": "graph-evo-app",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"node server\" ",
+    "start": "node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

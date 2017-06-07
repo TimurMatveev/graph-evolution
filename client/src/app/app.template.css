@@ -63,6 +63,10 @@
             animation-fill-mode: forwards;
         }
 
+            .app-nav > div {
+                display: flex;
+            }
+
         .app-nav-left {
             align-items: flex-start;
         }
@@ -84,7 +88,22 @@
         display: flex;
         flex-direction: column;
         overflow: auto;
+        z-index: 1;
     }
+
+.pin-mode-wrapper {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+}
+
+.pin-mode-wrapper > div {
+    display: flex;
+}
+
+.pin-button {
+    flex: 1 1 100%;
+}
 
 @keyframes header_slide {
     0% {

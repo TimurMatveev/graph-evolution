@@ -6,6 +6,7 @@ import { CONDITIONS } from '../../enums/conditions/conditions';
 import { GraphService } from '../../services/GraphService/graph.service';
 import { WatchableStorage } from '../../services/WatchableStorageService/watchableStorage.service';
 import { MachineLoaderService } from '../../services/MachineLoaderService/machineLoader.service';
+import { MachineService } from '../../services/MachineService/machine.service';
 
 @Component({
     selector: 'machine-loader',
@@ -19,7 +20,8 @@ export class MachineLoaderComponent implements OnInit {
     constructor(
         private GraphService: GraphService,
         private WatchableStorage: WatchableStorage,
-        private MachineLoaderService: MachineLoaderService
+        private MachineLoaderService: MachineLoaderService,
+        private MachineService: MachineService
     ) {
         this.isLoading = false;
         this.machines = [];
@@ -76,6 +78,7 @@ export class MachineLoaderComponent implements OnInit {
         }
 
         this.WatchableStorage.set("instructions", instructions);
+        this.MachineService.stopMachine();
 
         let nextGraph = this.GraphService.avaliableGraphs.find(item => item.name == machine.initialGraph.name);
         nextGraph.params.forEach((param:any, i: number) => param.value = machine.initialGraph.params[i].value); 

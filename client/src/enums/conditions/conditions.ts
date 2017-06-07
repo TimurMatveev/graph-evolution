@@ -55,5 +55,20 @@ export const CONDITIONS = {
             description: ''
         }],
         description: 'ChecksIfNodeWasBornOnIterationInRange'
+    },
+    'Random': {
+        name: 'Random',
+        callback: (data: any) => {
+            return Math.random() < data.params[0].value / 100;
+        },
+        isOnce: true,
+        params: [{
+            value: '0',
+            type: 'number',
+            description: '',
+            min: 0,
+            max: 100
+        }],
+        description: 'Random'
     }
 };

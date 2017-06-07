@@ -12,6 +12,7 @@ export class GraphService {
     private graphsCallbacks: any;
     private nextId: number = 0;
     private nodesToDelete: Array<any> = [];
+    private pinFunction: Function;
     
     public avaliableGraphs: Array<any>;
 
@@ -346,13 +347,47 @@ export class GraphService {
         });
 
         this.renderer.run();
+        
+        this.pinFunction = layout.pinNode;
 
-        this.graphics.webglInputEvents.click((node: any, event: MouseEvent) => {
+        this.graphics.webglInputEvents;
+        this.graphics.webglInputEvents.click((node: any) => {
+            let isPinMode = this.WatchableStorage.get("nodePinMode");
             setTimeout(() => {
-                layout.pinNode(node, false);
-            }, 0)
+                let nodeUI = this.graphics.getNodeUI(node.id);
+
+                if (isPinMode) {
+                    layout.pinNode(node, true);
+                    nodeUI.size = 18;
+                } else {
+                    layout.pinNode(node, false);
+                    nodeUI.size = 12;
+                }
+            }, 0);
         });
+        this.graphics.webglInputEvents.dblClick((node: any) => {
+            setTimeout(() => {
+                this.graphics.getNodeUI(node.id).size = 12;
+                layout.pinNode(node, false);              
+            }, 0);
+        });
+
+        window.addEventListener("resize", () => { this.renderer.reset(); });
     };
+
+    setAllNodesPin(isPin: boolean) {
+        this.graph.forEachNode((node: any) => {
+            let nodeUI = this.graphics.getNodeUI(node.id);
+            
+            if (isPin) {
+                this.pinFunction(node, true);
+                nodeUI.size = 18;
+            } else {
+                this.pinFunction(node, false);
+                nodeUI.size = 12;
+            }
+        });
+    }
 
     rerender() {
         if (this.wrapper) {

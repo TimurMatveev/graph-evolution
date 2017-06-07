@@ -28,7 +28,6 @@ router.post("/machine", function (req, res, next) {
             }
         });
     } else {
-        // TODO: Data validation
         res.status(400);
         res.json({
             "error": "InvalidData"
@@ -51,7 +50,6 @@ router.put("/machine/:id", function (req, res, next) {
             }
         });
     } else {
-        // TODO: Data validation
         res.status(400);
         res.json({
             "error": "InvalidData"

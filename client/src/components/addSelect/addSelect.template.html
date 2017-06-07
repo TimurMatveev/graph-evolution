@@ -12,7 +12,7 @@
         <div class="add-item app-button" *ngFor="let item of drilldownData" (click)="addItem($event, item)" [title]="item.description | localize">
             <div class="name">{{item.name | localize}}</div>
             <div *ngFor="let parametr of item.params">
-                <input *ngIf="parametr.type == 'number'" class="param" type="number" [(ngModel)]="parametr.value">
+                <input *ngIf="parametr.type == 'number'" class="param" type="number" [(ngModel)]="parametr.value" [min]="parametr.min" [max]="parametr.max">
                 <state-select *ngIf="parametr.type == 'state'" [state]="parametr.value" (selectValue)="changeValue(parametr, $event)"></state-select>
             </div>
         </div>

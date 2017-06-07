@@ -5,11 +5,18 @@
 
     <header class="app-header">
         <nav class="app-nav app-nav-left">
-            <div class="app-button" (click)="toggleInitialization()">
-                {{'Initialize' | localize}}
+            <div>
+                <div class="app-button" (click)="toggleInitialization()">
+                    {{'Initialize' | localize}}
+                </div>
             </div>
-            <div class="app-button" (click)="toggleLoadingMachine()">
-                {{'LoadMachine' | localize}}
+            <div>
+                <div class="app-button" (click)="toggleLoadingMachine()">
+                    {{'LoadMachine' | localize}}
+                </div>
+                <div class="app-button" (click)="restartMachine()">
+                    {{'RestartMachine' | localize}}
+                </div>
             </div>
         </nav>
         <div class="app-header-centired" (click)="toggleInitialization(false)">
@@ -49,5 +56,15 @@
 
     <div *ngIf="isSavingMachineFieldOpened" class="init-wrapper">
         <machine-saver style="height: 100%"></machine-saver>
+    </div>
+
+    <div class="pin-mode-wrapper">
+        <div>
+            <div class="app-button" (click)="pinAll()">{{'PinAll' | localize}}</div>
+            <div class="app-button" (click)="unpinAll()">{{'UnpinAll' | localize}}</div>
+        </div>
+        <div>
+            <div class="pin-button app-button" [class.selected]="isPinned" (click)="onPinModeCheck()">{{'PinNodesMode' | localize}}</div>
+        </div>
     </div>
 </div>

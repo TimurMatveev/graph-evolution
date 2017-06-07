@@ -95,7 +95,6 @@ export class MachineSaverComponent implements OnInit {
     }
 
     updateMachine() {
-        debugger;
         let machine: any = this.MachineComposerService.compose(this.machineConfig);
         let id: string = this.WatchableStorage.get("updateMachine").id;
 
